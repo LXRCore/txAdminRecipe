@@ -1,0 +1,219 @@
+$engine: 3
+$onesync: on
+name: LXRCore Framework RedM
+version: 1.0.0
+author: The LXRCore Development Team
+description: An advanced RedM framework with jobs, gangs, housing, and more, created for LXRCore!
+
+tasks:
+  # Download Base Files
+  - action: download_github
+    src: https://github.com/LXRCore/txAdminRecipe
+    ref: main
+    dest: ./tmp/lxrcore
+
+  - action: move_path
+    src: ./tmp/lxrcore/server.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./tmp/lxrcore/myLogo.png
+    dest: ./myLogo.png
+
+  # Prepare Database
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/lxrcore/lxrcore.sql
+
+  # Download Standalone Resources  
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    subpath: resources
+    dest: ./resources/[cfx-default]
+  
+  - action: download_file
+    path: ./tmp/files/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+  - action: unzip
+    dest: ./resources/[standalone]
+    src: ./tmp/files/oxmysql.zip
+    
+  - action: download_github
+    dest: ./resources/[standalone]/connectqueue
+    ref: master
+    src: https://github.com/LXRCore/connectqueue
+    
+  - action: download_github
+    dest: ./resources/[standalone]/progressbar
+    ref: main
+    src: https://github.com/LXRCore/progressbar
+    
+  - action: download_github
+    dest: ./resources/[standalone]/safecracker
+    ref: main
+    src: https://github.com/LXRCore/safecracker
+    
+  - action: download_github
+    dest: ./resources/[standalone]/PolyZone
+    ref: master
+    src: https://github.com/LXRCore/PolyZone
+
+  - action: download_github
+    dest: ./resources/[standalone]/pma-voice
+    ref: main
+    src: https://github.com/AvarianKnight/pma-voice
+
+  - action: download_github
+    dest: ./resources/[standalone]/menuv
+    ref: master
+    src: https://github.com/LXRCore/menuv
+
+  - action: download_github
+    dest: ./resources/[standalone]/mediccamp
+    ref: main
+    src: https://github.com/LXRCore/mediccamp
+
+  # Download LXRCore resources
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-adminmenu
+    ref: main
+    dest: ./resources/[lxr]/lxr-adminmenu
+  
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-ambulancejob
+    ref: main
+    dest: ./resources/[lxr]/lxr-ambulancejob
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-banking
+    ref: main
+    dest: ./resources/[lxr]/lxr-banking
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-clothing
+    ref: main
+    dest: ./resources/[lxr]/lxr-clothing
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-core
+    ref: main
+    dest: ./resources/[lxr]/lxr-core
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-doorlock
+    ref: main
+    dest: ./resources/[lxr]/lxr-doorlock
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-hud
+    ref: main
+    dest: ./resources/[lxr]/lxr-hud
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-input
+    ref: main
+    dest: ./resources/[lxr]/lxr-input
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-interiors
+    ref: main
+    dest: ./resources/[lxr]/lxr-interiors
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-inventory
+    ref: main
+    dest: ./resources/[lxr]/lxr-inventory
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-lockpick
+    ref: main
+    dest: ./resources/[lxr]/lxr-lockpick
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-management
+    ref: main
+    dest: ./resources/[lxr]/lxr-management
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-menu
+    ref: main
+    dest: ./resources/[lxr]/lxr-menu
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-multicharacter
+    ref: main
+    dest: ./resources/[lxr]/lxr-multicharacter
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-policejob
+    ref: main
+    dest: ./resources/[lxr]/lxr-policejob
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-scoreboard
+    ref: main
+    dest: ./resources/[lxr]/lxr-scoreboard
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-shops
+    ref: main
+    dest: ./resources/[lxr]/lxr-shops
+  
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-smallresources
+    ref: main
+    dest: ./resources/[lxr]/lxr-smallresources
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-target
+    ref: main
+    dest: ./resources/[lxr]/lxr-target
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-spawn
+    ref: main
+    dest: ./resources/[lxr]/lxr-spawn
+    
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-stable
+    ref: main
+    dest: ./resources/[lxr]/lxr-stable
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-weapons
+    ref: main
+    dest: ./resources/[lxr]/lxr-weapons
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-mining
+    ref: main
+    dest: ./resources/[lxr]/lxr-mining
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-moonshine
+    ref: main
+    dest: ./resources/[lxr]/lxr-moonshine
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-farming
+    ref: main
+    dest: ./resources/[lxr]/lxr-farming
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-contraband
+    ref: main
+    dest: ./resources/[lxr]/lxr-contraband
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-hunting
+    ref: main
+    dest: ./resources/[lxr]/lxr-hunting
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-weathersync
+    ref: main
+    dest: ./resources/[lxr]/lxr-weathersync
+  
+  # Clean up
+  - action: remove_path
+    path: ./tmp
