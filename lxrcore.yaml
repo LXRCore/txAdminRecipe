@@ -41,7 +41,7 @@ tasks:
   - action: download_github
     dest: ./resources/[standalone]/connectqueue
     ref: master
-    src: https://github.com/LXRCore/connectqueue
+    src: https://github.com/qbcore-framework/connectqueue
     
   - action: download_github
     dest: ./resources/[standalone]/progressbar
