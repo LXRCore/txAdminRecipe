@@ -40,7 +40,7 @@ tasks:
     
   - action: download_github
     dest: ./resources/[standalone]/connectqueue
-    ref: master
+    ref: main
     src: https://github.com/LXRCore/connectqueue
     
   - action: download_github
@@ -55,7 +55,7 @@ tasks:
     
   - action: download_github
     dest: ./resources/[standalone]/PolyZone
-    ref: master
+    ref: main
     src: https://github.com/LXRCore/PolyZone
 
   - action: download_github
@@ -65,7 +65,7 @@ tasks:
 
   - action: download_github
     dest: ./resources/[standalone]/menuv
-    ref: master
+    ref: main
     src: https://github.com/LXRCore/menuv
 
   - action: download_github
