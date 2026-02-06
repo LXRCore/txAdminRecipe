@@ -1,3 +1,26 @@
+# ════════════════════════════════════════════════════════════════════════════════
+# 🐺 LXR-CORE FRAMEWORK - TXADMIN DEPLOYMENT RECIPE
+# ════════════════════════════════════════════════════════════════════════════════
+#
+# The Land of Wolves Official txAdmin Recipe
+# Production-Grade RedM Server Deployment System
+#
+# Server:      The Land of Wolves 🐺
+# Tagline:     Georgian RP 🇬🇪 | მგლების მიწა - რჩეულთა ადგილი!
+# Description: ისტორია ცოცხლდება აქ! (History Lives Here!)
+# Type:        Serious Hardcore Roleplay
+# Access:      Discord & Whitelisted
+#
+# Developer:   iBoss21 / The Lux Empire
+# Website:     https://www.wolves.land
+# Discord:     https://discord.gg/CrKcWdfd3A
+# GitHub:      https://github.com/iBoss21
+# Store:       https://theluxempire.tebex.io
+#
+# © 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
+#
+# ════════════════════════════════════════════════════════════════════════════════
+
 $engine: 3
 $onesync: on
 name: LXRCore Framework RedM
