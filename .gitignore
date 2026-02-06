@@ -1,0 +1,71 @@
+# ════════════════════════════════════════════════════════════════════════════════
+# 🐺 LXR-CORE TXADMIN RECIPE - GITIGNORE
+# ════════════════════════════════════════════════════════════════════════════════
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+*.code-workspace
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Build Artifacts
+dist/
+build/
+out/
+*.build
+
+# Node Modules (if using any JS tooling)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Python (if using any Python scripts)
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.env
+
+# Database Files (don't commit local DB)
+*.db
+*.sqlite
+*.sqlite3
+
+# Server Configuration (may contain sensitive data)
+# Uncomment if you don't want to commit server-specific configs
+# server.cfg
+# mysql.cfg
+
+# Logs
+logs/
+*.log
+crash_*.txt
+
+# Screenshots (local testing)
+# Keep structure but not actual screenshots during dev
+# docs/assets/screenshots/*.png
+# docs/assets/screenshots/*.jpg
+
+# Backup Files
+*.bak
+*.backup
+*~
