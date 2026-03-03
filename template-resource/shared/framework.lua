@@ -1,24 +1,34 @@
 --[[
-  ╦ ╦╔═╗╦  ╦  ╦╔═╗╔═╗  ╦  ╔═╗╔╗╔╔╦╗
-  ║║║║ ║║  ╚╗╔╝║╣ ╚═╗  ║  ╠═╣║║║ ║║
-  ╚╩╝╚═╝╩═╝ ╚╝ ╚═╝╚═╝  ╩═╝╩ ╩╝╚╝═╩╝
-  ════════════════════════════════════════════════════════════
-  Template Resource - Framework Bridge/Adapter
+  ██╗     ██╗  ██╗██████╗        ██████╗ ██████╗ ██████╗ ███████╗
+  ██║     ╚██╗██╔╝██╔══██╗      ██╔════╝██╔═══██╗██╔══██╗██╔════╝
+  ██║      ╚███╔╝ ██████╔╝█████╗██║     ██║   ██║██████╔╝█████╗
+  ██║      ██╔██╗ ██╔══██╗╚════╝██║     ██║   ██║██╔══██╗██╔══╝
+  ███████╗██╔╝ ██╗██║  ██║      ╚██████╗╚██████╔╝██║  ██║███████╗
+  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+  ════════════════════════════════════════════════════════════════
+  🐺 Template Resource — Framework Bridge/Adapter
   Universal Multi-Framework Support System
-  ════════════════════════════════════════════════════════════
-  wolves.land | discord.gg/lxr | lxrcore.com
-  ════════════════════════════════════════════════════════════
-  
+  ════════════════════════════════════════════════════════════════
+  SERVER INFORMATION
+  ──────────────────────────────────────────────────────────────
+  Server:    The Land of Wolves 🐺
+  Developer: iBoss21 / The Lux Empire
+  Website:   https://www.wolves.land
+  Discord:   https://discord.gg/CrKcWdfd3A
+  Store:     https://theluxempire.tebex.io
+  ════════════════════════════════════════════════════════════════
   SUPPORTED FRAMEWORKS:
-  ──────────────────────────────────────────────────────────
+  ──────────────────────────────────────────────────────────────
   • LXR-Core      (Primary - wolves.land framework)
-  • RSG-Core      (RedM framework)
-  • VORP Core     (Popular RedM framework)
-  • RedEM:RP      (RedM roleplay framework)
-  • QBR-Core      (QB RedM port)
-  • QR-Core       (Another QB RedM port)
-  • Standalone    (No framework - basic functionality)
-  ════════════════════════════════════════════════════════════
+  • RSG-Core      (Primary - RedM framework)
+  • VORP Core     (Supported / Legacy)
+  • RedEM:RP      (Optional - RedM roleplay framework)
+  • QBR-Core      (Optional - QB RedM port)
+  • QR-Core       (Optional - Another QB RedM port)
+  • Standalone    (Fallback - No framework)
+  ════════════════════════════════════════════════════════════════
+  © 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
+  ════════════════════════════════════════════════════════════════
 ]]
 
 Framework = {}
