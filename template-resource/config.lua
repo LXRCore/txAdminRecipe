@@ -1,22 +1,32 @@
 --[[
-  ╦ ╦╔═╗╦  ╦  ╦╔═╗╔═╗  ╦  ╔═╗╔╗╔╔╦╗
-  ║║║║ ║║  ╚╗╔╝║╣ ╚═╗  ║  ╠═╣║║║ ║║
-  ╚╩╝╚═╝╩═╝ ╚╝ ╚═╝╚═╝  ╩═╝╩ ╩╝╚╝═╩╝
-  ════════════════════════════════════════════════════════════
-  Template Resource - Configuration File
+  ██╗     ██╗  ██╗██████╗        ██████╗ ██████╗ ██████╗ ███████╗
+  ██║     ╚██╗██╔╝██╔══██╗      ██╔════╝██╔═══██╗██╔══██╗██╔════╝
+  ██║      ╚███╔╝ ██████╔╝█████╗██║     ██║   ██║██████╔╝█████╗
+  ██║      ██╔██╗ ██╔══██╗╚════╝██║     ██║   ██║██╔══██╗██╔══╝
+  ███████╗██╔╝ ██╗██║  ██║      ╚██████╗╚██████╔╝██║  ██║███████╗
+  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+  ════════════════════════════════════════════════════════════════
+  🐺 Template Resource — Configuration File
   Production-Ready Reference Implementation
-  ════════════════════════════════════════════════════════════
-  wolves.land | discord.gg/lxr | lxrcore.com
-  ════════════════════════════════════════════════════════════
-  
+  ════════════════════════════════════════════════════════════════
+  SERVER INFORMATION
+  ──────────────────────────────────────────────────────────────
+  Server:    The Land of Wolves 🐺
+  Developer: iBoss21 / The Lux Empire
+  Website:   https://www.wolves.land
+  Discord:   https://discord.gg/CrKcWdfd3A
+  Store:     https://theluxempire.tebex.io
+  ════════════════════════════════════════════════════════════════
   CONFIGURATION INSTRUCTIONS:
-  ──────────────────────────────────────────────────────────
+  ──────────────────────────────────────────────────────────────
   1. This config demonstrates ALL wolves.land coding standards
   2. Copy this structure for your own resources
   3. Adjust values to match your server's requirements
   4. Keep the branded headers and section dividers
   5. DO NOT modify REQUIRED_RESOURCE_NAME unless renaming
-  ════════════════════════════════════════════════════════════
+  ════════════════════════════════════════════════════════════════
+  © 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
+  ════════════════════════════════════════════════════════════════
 ]]
 
 Config = {}
@@ -42,11 +52,13 @@ end
 -- ██████ SERVER INFORMATION █████████████████████████████████
 -- ═══════════════════════════════════════════════════════════
 Config.ServerInfo = {
-    name = "wolves.land",
-    discord = "discord.gg/lxr",
-    website = "lxrcore.com",
-    support = "https://discord.gg/lxr",
-    documentation = "https://docs.lxrcore.com"
+    name = "The Land of Wolves 🐺",
+    discord = "https://discord.gg/CrKcWdfd3A",
+    website = "https://www.wolves.land",
+    support = "https://discord.gg/CrKcWdfd3A",
+    documentation = "https://docs.lxrcore.com",
+    store = "https://theluxempire.tebex.io",
+    developer = "iBoss21 / The Lux Empire",
 }
 
 -- ═══════════════════════════════════════════════════════════
@@ -276,9 +288,12 @@ if IsDuplicityVersion() then -- Server-side only
         local tier3Count = #Config.LootTables.tier3
         
         print("^2═══════════════════════════════════════════════════════════^0")
-        print("^2  ╦ ╦╔═╗╦  ╦  ╦╔═╗╔═╗  ╦  ╔═╗╔╗╔╔╦╗^0")
-        print("^2  ║║║║ ║║  ╚╗╔╝║╣ ╚═╗  ║  ╠═╣║║║ ║║^0")
-        print("^2  ╚╩╝╚═╝╩═╝ ╚╝ ╚═╝╚═╝  ╩═╝╩ ╩╝╚╝═╩╝^0")
+        print("^2  ██╗     ██╗  ██╗██████╗        ██████╗ ██████╗ ██████╗ ███████╗^0")
+        print("^2  ██║     ╚██╗██╔╝██╔══██╗      ██╔════╝██╔═══██╗██╔══██╗██╔════╝^0")
+        print("^2  ██║      ╚███╔╝ ██████╔╝█████╗██║     ██║   ██║██████╔╝█████╗  ^0")
+        print("^2  ██║      ██╔██╗ ██╔══██╗╚════╝██║     ██║   ██║██╔══██╗██╔══╝  ^0")
+        print("^2  ███████╗██╔╝ ██╗██║  ██║      ╚██████╗╚██████╔╝██║  ██║███████╗^0")
+        print("^2  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝^0")
         print("^2═══════════════════════════════════════════════════════════^0")
         print("^3Template Resource ^2v1.0.0 ^3- Example Looting System^0")
         print("^2═══════════════════════════════════════════════════════════^0")
@@ -289,9 +304,14 @@ if IsDuplicityVersion() then -- Server-side only
         print("^3Lootable Props: ^2" .. lootableCount .. "^0")
         print("^3Loot Items: ^2" .. (tier1Count + tier2Count + tier3Count) .. " ^3(T1: ^2" .. tier1Count .. "^3, T2: ^2" .. tier2Count .. "^3, T3: ^2" .. tier3Count .. "^3)^0")
         print("^3Cooldown: ^2" .. (Config.Cooldowns.perPropCooldown / 1000) .. "s ^3per prop^0")
+        print("^2───────────────────────────────────────────────────────────^0")
+        print("^3Server:    ^2" .. Config.ServerInfo.name .. "^0")
+        print("^3Developer: ^2" .. Config.ServerInfo.developer .. "^0")
+        print("^3Discord:   ^2" .. Config.ServerInfo.discord .. "^0")
+        print("^3Website:   ^2" .. Config.ServerInfo.website .. "^0")
+        print("^3Store:     ^2" .. Config.ServerInfo.store .. "^0")
         print("^2═══════════════════════════════════════════════════════════^0")
-        print("^3Discord: ^2" .. Config.ServerInfo.discord .. "^0")
-        print("^3Website: ^2" .. Config.ServerInfo.website .. "^0")
+        print("^3© 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved^0")
         print("^2═══════════════════════════════════════════════════════════^0")
     end)
 end

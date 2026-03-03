@@ -1,32 +1,44 @@
 --[[
-  ╦ ╦╔═╗╦  ╦  ╦╔═╗╔═╗  ╦  ╔═╗╔╗╔╔╦╗
-  ║║║║ ║║  ╚╗╔╝║╣ ╚═╗  ║  ╠═╣║║║ ║║
-  ╚╩╝╚═╝╩═╝ ╚╝ ╚═╝╚═╝  ╩═╝╩ ╩╝╚╝═╩╝
-  ════════════════════════════════════════════════════════════
-  Template Resource - Example Looting System
+  ██╗     ██╗  ██╗██████╗        ██████╗ ██████╗ ██████╗ ███████╗
+  ██║     ╚██╗██╔╝██╔══██╗      ██╔════╝██╔═══██╗██╔══██╗██╔════╝
+  ██║      ╚███╔╝ ██████╔╝█████╗██║     ██║   ██║██████╔╝█████╗
+  ██║      ██╔██╗ ██╔══██╗╚════╝██║     ██║   ██║██╔══██╗██╔══╝
+  ███████╗██╔╝ ██╗██║  ██║      ╚██████╗╚██████╔╝██║  ██║███████╗
+  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+  ════════════════════════════════════════════════════════════════
+  🐺 Template Resource — Example Looting System
   Production-Ready Reference Implementation
-  ════════════════════════════════════════════════════════════
-  wolves.land | discord.gg/lxr | lxrcore.com
-  ════════════════════════════════════════════════════════════
+  ════════════════════════════════════════════════════════════════
+  SERVER INFORMATION
+  ──────────────────────────────────────────────────────────────
+  Server:    The Land of Wolves 🐺
+  Developer: iBoss21 / The Lux Empire
+  Website:   https://www.wolves.land
+  Discord:   https://discord.gg/CrKcWdfd3A
+  Store:     https://theluxempire.tebex.io
+  ════════════════════════════════════════════════════════════════
+  © 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
+  ════════════════════════════════════════════════════════════════
 ]]
-
--- ═══════════════════════════════════════════════════════════
--- ██████ REDM PRERELEASE WARNING ████████████████████████████
--- ═══════════════════════════════════════════════════════════
-rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources WILL become incompatible once RedM ships.'
 
 -- ═══════════════════════════════════════════════════════════
 -- ██████ MANIFEST METADATA ██████████████████████████████████
 -- ═══════════════════════════════════════════════════════════
 fx_version 'cerulean'
 game 'rdr3'
+
+-- ═══════════════════════════════════════════════════════════
+-- ██████ REDM PRERELEASE WARNING ████████████████████████████
+-- ═══════════════════════════════════════════════════════════
+rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
+
 lua54 'yes'
 
 name 'template-resource'
-author 'wolves.land Development Team'
-description 'Production-ready template resource demonstrating LXR coding standards - Example looting system'
+author 'iBoss21 / The Lux Empire'
+description 'Production-ready template resource demonstrating LXR coding standards - Example looting system | wolves.land'
 version '1.0.0'
-repository 'https://github.com/wolves-land/template-resource'
+repository 'https://github.com/LXRCore/txAdminRecipe'
 
 -- ═══════════════════════════════════════════════════════════
 -- ██████ SHARED SCRIPTS █████████████████████████████████████
