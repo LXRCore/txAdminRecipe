@@ -47,7 +47,7 @@ Requirements: FXServer build 7290+, MariaDB 10.6+ / MySQL 8, OneSync **on**
 | Official resources | `resources/[lxr]/…` (31 resources) |
 
 `server.cfg` ensures the core chain explicitly (`oxmysql → lxr-core →
-lxr-inventory → lxr-multicharacter → lxr-spawn → lxr-clothing → lxr-hud`)
+lxr-inventory → lxr-multicharacter → lxr-spawn → lxr-horses → lxr-trains → lxr-me → lxr-clothing → lxr-hud`)
 and then the categories, so start order is deterministic. Permission groups
 are `lxrcore.<group>`; the txAdmin master account inherits `lxrcore.god`.
 
