@@ -154,9 +154,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-inventory
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-multicharacter
+    src: https://github.com/LXRCore/lxr-creator
     ref: main
-    dest: ./resources/[lxr]/lxr-multicharacter
+    dest: ./resources/[lxr]/lxr-creator
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-spawn
