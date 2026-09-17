@@ -1,206 +1,99 @@
-```
+<!--
     ██╗     ██╗  ██╗██████╗        ██████╗ ██████╗ ██████╗ ███████╗
     ██║     ╚██╗██╔╝██╔══██╗      ██╔════╝██╔═══██╗██╔══██╗██╔════╝
-    ██║      ╚███╔╝ ██████╔╝█████╗██║     ██║   ██║██████╔╝█████╗  
-    ██║      ██╔██╗ ██╔══██╗╚════╝██║     ██║   ██║██╔══██╗██╔══╝  
+    ██║      ╚███╔╝ ██████╔╝█████╗██║     ██║   ██║██████╔╝█████╗
+    ██║      ██╔██╗ ██╔══██╗╚════╝██║     ██║   ██║██╔══██╗██╔══╝
     ███████╗██╔╝ ██╗██║  ██║      ╚██████╗╚██████╔╝██║  ██║███████╗
     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+
+    🐺 LXRCore txAdmin Recipe — clean RedM server → LXRCore v3
+    Developer: iBoss21 / LXRCore · https://www.lxrcore.com
+    © 2026 iBoss21 / LXRCore | lxrcore.com | All Rights Reserved
+-->
+
+# 🐺 LXRCore txAdmin Recipe (v3)
+
+![Recipe](https://img.shields.io/badge/recipe-3.0.0-c4a574)
+![Engine](https://img.shields.io/badge/txAdmin_engine-3-1a1512)
+![Validated](https://img.shields.io/badge/validator-52_tasks_%C2%B7_0_errors-brightgreen)
+![Platform](https://img.shields.io/badge/platform-RedM-100e0c)
+
+Deploys a complete LXRCore v3 server from an empty txAdmin profile:
+framework core, compatibility bridges, standalone dependencies, official LXR
+resources, database schema and a working `server.cfg`.
+
+## Use it
+
+1. txAdmin → **Setup** → *Remote URL Template*
+2. Paste `https://raw.githubusercontent.com/LXRCore/txAdminRecipe/main/lxrcore.yaml`
+3. Fill in the database and licence key prompts; deploy.
+4. Start the server. The console prints the LXRCore banner and `ready in <n>ms`.
+
+Requirements: FXServer build 7290+, MariaDB 10.6+ / MySQL 8, OneSync **on**
+(the recipe sets it).
+
+## What the recipe does
+
+| Step | Result |
+|---|---|
+| Base files | `server.cfg`, `myLogo.png` |
+| Database | `lxrcore.sql` = lxr-core schema (`players`, `bans`, `lxr_ledger`, `lxr_migrations`) + tables owned by the official resources |
+| Cfx defaults | `resources/[cfx-default]` from `citizenfx/cfx-server-data@master` |
+| Standalone | `oxmysql` (CommunityOx release), `pma-voice`, `connectqueue`, `progressbar`, `PolyZone`, `menuv`, `mediccamp`, `safecracker` |
+| Framework | `resources/[framework]/lxr-core` |
+| Bridges | `resources/[lxr-bridges]/{rsg-core, vorp_core, qbr-core, vorp_inventory}` — moved out of `lxr-core/bridges`, **not ensured by default** |
+| Official resources | `resources/[lxr]/…` (28 resources) |
+
+`server.cfg` ensures the core chain explicitly (`oxmysql → lxr-core →
+lxr-inventory → lxr-multicharacter → lxr-spawn → lxr-clothing → lxr-hud`)
+and then the categories, so start order is deterministic. Permission groups
+are `lxrcore.<group>`; the txAdmin master account inherits `lxrcore.god`.
+
+## Running RSG / VORP / QBR resources on this server
+
+Uncomment the bridge you need in `server.cfg` **only if the real resource is
+not installed**:
+
+```cfg
+#ensure rsg-core
+#ensure vorp_core
+#ensure qbr-core
+#ensure vorp_inventory
 ```
+What each bridge supports (and what it deliberately does not) is documented in
+[`lxr-core/docs/compatibility.md`](https://github.com/LXRCore/lxr-core/blob/main/docs/compatibility.md).
 
-# 🐺 txAdminRecipe for LXR-Core RedM Framework
+## Validate before you deploy
 
-**The Land of Wolves Official txAdmin Deployment Recipe**
+```bash
+pip install pyyaml
+python tools/validate_recipe.py            # structure, ensure/dest consistency, cfg syntax, SQL idempotency
+python tools/validate_recipe.py --online   # + every GitHub repo/ref exists (needs `gh`)
+```
+CI runs both on every push. The validator is what caught the two defects in
+the previous recipe: Markdown text inside `server.cfg` and a wrong branch
+name for `cfx-server-data`.
 
-> *ისტორია ცოცხლდება აქ!* (History Lives Here!)
+## Status
 
-═══════════════════════════════════════════════════════════════════════════════
+| Check | Result |
+|---|---|
+| YAML structure, task fields, unique destinations | ✅ validator |
+| every `ensure` maps to a downloaded resource | ✅ validator |
+| all 39 GitHub sources reachable at the pinned ref | ✅ validator `--online` (2026-09-17) |
+| SQL idempotent | ✅ validator |
+| full txAdmin deployment on a clean machine | **NOT TESTED** yet — requires a live FXServer + database |
+| official resources audited against lxr-core v3 | in progress (core serves their legacy API; see the org README) |
 
-## 📋 Overview
+Note: `lxr-core` is downloaded from `main`. Until the v3 rewrite is merged
+there, deploy from a fork or change `ref:` to the release tag you want.
 
-This **txAdminRecipe** provides a production-grade, streamlined deployment process for setting up a **RedM server** using the **LXR-Core Framework**. Designed for serious roleplay servers, this recipe automates the installation of all core resources, dependencies, and configurations needed to launch a fully-functional RedM server.
+## Support
 
-**Built for:** The Land of Wolves 🐺 | Georgian RP Server  
-**Author:** iBoss21 / The Lux Empire  
-**Framework:** LXR-Core (Primary), RSG-Core (Compatible), VORP (Supported)
+| | |
+|---|---|
+| 🌐 Website | [lxrcore.com](https://www.lxrcore.com) |
+| 🛠 Dev Discord | [discord.gg/ZHMKVYyhBa](https://discord.gg/ZHMKVYyhBa) |
+| 🐺 Community | [discord.gg/wolvesland](https://discord.gg/wolvesland) |
 
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🚀 Features
-
-- **🎯 One-Click Deployment** - Full server setup via txAdmin interface
-- **🔧 Pre-Configured Resources** - All LXR-Core resources included and configured
-- **💾 Database Auto-Setup** - Automatic database schema creation
-- **📦 Dependency Management** - Standalone resources automatically installed
-- **🔐 Production Ready** - Security, performance, and optimization built-in
-- **🐺 Wolves.Land Branded** - Official branding and configuration standards
-- **📚 Comprehensive Documentation** - Full docs for setup, configuration, and customization
-- **🌍 Multi-Framework Support** - Template resources support LXR, RSG, and VORP cores
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 📦 What's Included
-
-### Core Framework
-- **lxr-core** - Primary framework
-- **lxr-multicharacter** - Character selection system
-- **lxr-hud** - Player HUD interface
-
-### Essential Systems
-- **lxr-inventory** - Advanced inventory system
-- **lxr-target** - Interaction targeting system
-- **lxr-menu** - Menu framework
-- **lxr-input** - Input handling
-
-### Job Systems
-- **lxr-policejob** - Law enforcement system
-- **lxr-ambulancejob** - Medical services
-- **lxr-management** - Business management
-
-### Economy & Gameplay
-- **lxr-shops** - Shop system
-- **lxr-banking** - Banking system
-- **lxr-mining** - Mining job
-- **lxr-hunting** - Hunting system
-- **lxr-farming** - Farming system
-- **lxr-moonshine** - Moonshine production
-
-### Utilities
-- **lxr-weathersync** - Weather synchronization
-- **lxr-spawn** - Spawn management
-- **lxr-stable** - Horse/mount system
-- **lxr-clothing** - Clothing system
-- **lxr-doorlock** - Door locking system
-
-### Standalone Dependencies
-- **oxmysql** - Database connector
-- **pma-voice** - Voice chat
-- **menuv** - Menu library
-- **PolyZone** - Zone system
-- **progressbar** - Progress bars
-- **connectqueue** - Connection queue
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🛠️ Requirements
-
-- **txAdmin** (latest version)
-- **RedM Server** (latest build)
-- **MySQL Database** (MySQL 8.0+ or MariaDB 10.6+)
-- **Server Resources** (minimum 4GB RAM recommended)
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 📥 Installation
-
-### Method 1: txAdmin Recipe (Recommended)
-
-1. Open **txAdmin** web interface
-2. Click **"New Server"** or **"Recipe Deployer"**
-3. Select **"Popular Templates"** or **"Custom Repository"**
-4. Enter repository URL: `https://github.com/LXRCore/txAdminRecipe`
-5. Select branch: `main`
-6. Click **"Next"** and follow the setup wizard
-7. Configure your database credentials
-8. Wait for the deployment to complete
-9. Start your server and enjoy!
-
-### Method 2: Manual Installation
-
-See [Installation Documentation](/docs/installation.md) for detailed manual setup instructions.
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 📖 Documentation
-
-Comprehensive documentation is available in the `/docs` directory:
-
-- **[Overview](/docs/overview.md)** - Complete system overview
-- **[Installation](/docs/installation.md)** - Step-by-step installation guide
-- **[Configuration](/docs/configuration.md)** - Configuration reference
-- **[Frameworks](/docs/frameworks.md)** - Multi-framework support guide
-- **[Events](/docs/events.md)** - Event system and adapter documentation
-- **[Security](/docs/security.md)** - Security best practices
-- **[Performance](/docs/performance.md)** - Performance optimization
-- **[Screenshots](/docs/screenshots.md)** - Required screenshots checklist
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🎨 Template Resource
-
-This repository includes a **production-ready template resource** (`/template-resource`) that demonstrates the wolves.land coding standards:
-
-- ✅ Branded ASCII headers on all files
-- ✅ Multi-framework auto-detection
-- ✅ Unified framework adapter/bridge
-- ✅ Runtime resource name protection
-- ✅ Security and anti-abuse measures
-- ✅ Performance optimizations
-- ✅ Comprehensive configuration system
-- ✅ Complete documentation
-
-Use this template as a reference when creating or converting resources to wolves.land standards.
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🔧 Configuration
-
-After deployment, customize your server by editing:
-
-- **`server.cfg`** - Server settings, license key, max players
-- **`resources/[lxr]/lxr-core/config.lua`** - Core framework configuration
-- **Individual resource configs** - Each resource has its own config.lua
-
-All configuration files follow the wolves.land branding and organization standards.
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🌐 Server Information
-
-**Server:** The Land of Wolves 🐺  
-**Tagline:** Georgian RP 🇬🇪 | მგლების მიწა - რჩეულთა ადგილი!  
-**Type:** Serious Hardcore Roleplay  
-**Access:** Discord & Whitelisted  
-
-**Links:**
-- 🌍 Website: https://www.wolves.land
-- 💬 Discord: https://discord.gg/CrKcWdfd3A
-- 📦 GitHub: https://github.com/iBoss21
-- 🛒 Store: https://theluxempire.tebex.io
-- 🎮 Server Listing: https://servers.redm.net/servers/detail/8gj7eb
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🤝 Support
-
-Need help? Reach out through:
-
-1. **Discord**: Join our [Discord server](https://discord.gg/CrKcWdfd3A) for community support
-2. **GitHub Issues**: Report bugs or request features via GitHub Issues
-3. **Documentation**: Check the `/docs` folder for comprehensive guides
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 📜 License
-
-© 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
-
-This recipe and template resources are provided for use with The Land of Wolves server and LXR-Core framework. See [LICENSE](LICENSE) for details.
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🏆 Credits
-
-**Script Author:** iBoss21 / The Lux Empire  
-**Framework:** LXR-Core Development Team  
-**Server:** The Land of Wolves  
-**Community:** wolves.land community
-
-═══════════════════════════════════════════════════════════════════════════════
-
-## 🔖 Tags
-
-`RedM` `Georgian` `SeriousRP` `Whitelist` `Economy` `RPG` `txAdmin` `LXR-Core` `RSG-Core` `VORP` `Framework` `Recipe` `Deployment`
-
-═══════════════════════════════════════════════════════════════════════════════
-
-🐺 **wolves.land** - Where History Lives! - *ისტორია ცოცხლდება აქ!*
+> © 2026 iBoss21 / LXRCore | [lxrcore.com](https://www.lxrcore.com) | All Rights Reserved

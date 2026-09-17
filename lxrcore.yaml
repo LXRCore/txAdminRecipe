@@ -1,166 +1,157 @@
-# ════════════════════════════════════════════════════════════════════════════════
-# 🐺 LXR-CORE FRAMEWORK - TXADMIN DEPLOYMENT RECIPE
-# ════════════════════════════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🐺 LXRCore Framework — txAdmin deployment recipe (v3)
+# ═══════════════════════════════════════════════════════════════════════════════
 #
-# The Land of Wolves Official txAdmin Recipe
-# Production-Grade RedM Server Deployment System
+#   Brand:       LXRCore — Lux Empire eXperience RedM Core
+#   Product:     wolves.land / The Land of Wolves 🐺
+#   Developer:   iBoss21 / LXRCore
+#   Website:     https://www.lxrcore.com
+#   Discord:     https://discord.gg/ZHMKVYyhBa (development)
+#   GitHub:      https://github.com/LXRCore
 #
-# Server:      The Land of Wolves 🐺
-# Tagline:     Georgian RP 🇬🇪 | მგლების მიწა - რჩეულთა ადგილი!
-# Description: ისტორია ცოცხლდება აქ! (History Lives Here!)
-# Type:        Serious Hardcore Roleplay
-# Access:      Discord & Whitelisted
+#   Result of this recipe (clean server → playable):
+#     server.cfg + icon           →  ./
+#     database                    →  lxrcore.sql (core schema + official resource tables)
+#     cfx-server-data             →  resources/[cfx-default]
+#     oxmysql, pma-voice, forks   →  resources/[standalone]
+#     lxr-core                    →  resources/[framework]/lxr-core
+#     compatibility bridges       →  resources/[lxr-bridges]/{rsg-core,vorp_core,qbr-core,vorp_inventory}
+#     official LXR resources      →  resources/[lxr]/…
 #
-# Developer:   iBoss21 / The Lux Empire
-# Website:     https://www.wolves.land
-# Discord:     https://discord.gg/CrKcWdfd3A
-# GitHub:      https://github.com/iBoss21
-# Store:       https://theluxempire.tebex.io
+#   Every task fails loudly; txAdmin stops the deployment on the first error.
+#   Validate offline with:  python tools/validate_recipe.py
 #
-# © 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
-#
-# ════════════════════════════════════════════════════════════════════════════════
+#   © 2026 iBoss21 / LXRCore | lxrcore.com | All Rights Reserved
+# ═══════════════════════════════════════════════════════════════════════════════
 
 $engine: 3
 $onesync: on
+$minFxVersion: 7290
+$steamRequired: false
 name: LXRCore Framework RedM
-version: 1.0.0
-author: The LXRCore Development Team
-description: An advanced RedM framework with jobs, gangs, housing, and more, created for LXRCore!
+version: 3.0.0
+author: iBoss21 / LXRCore
+description: LXRCore v3 — RedM framework core with RSG / VORP / QBR compatibility adapters, official LXR resources and a migrated database.
 
 tasks:
-  # Download Base Files
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 1. Base files
+  # ─────────────────────────────────────────────────────────────────────────────
   - action: download_github
     src: https://github.com/LXRCore/txAdminRecipe
     ref: main
-    dest: ./tmp/lxrcore
+    dest: ./tmp/recipe
 
   - action: move_path
-    src: ./tmp/lxrcore/server.cfg
+    src: ./tmp/recipe/server.cfg
     dest: ./server.cfg
 
   - action: move_path
-    src: ./tmp/lxrcore/myLogo.png
+    src: ./tmp/recipe/myLogo.png
     dest: ./myLogo.png
 
-  # Prepare Database
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 2. Database — core schema + tables owned by the official resources.
+  #    lxr-core re-applies its own migrations at first boot (idempotent).
+  # ─────────────────────────────────────────────────────────────────────────────
   - action: connect_database
-  - action: query_database
-    file: ./tmp/lxrcore/lxrcore.sql
 
-  # Download Standalone Resources  
+  - action: query_database
+    file: ./tmp/recipe/lxrcore.sql
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 3. Cfx defaults and standalone dependencies
+  # ─────────────────────────────────────────────────────────────────────────────
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
+    ref: master
     subpath: resources
     dest: ./resources/[cfx-default]
-  
+
   - action: download_file
     path: ./tmp/files/oxmysql.zip
-    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+    url: https://github.com/CommunityOx/oxmysql/releases/latest/download/oxmysql.zip
+
   - action: unzip
-    dest: ./resources/[standalone]
     src: ./tmp/files/oxmysql.zip
-    
-  - action: download_github
-    dest: ./resources/[standalone]/connectqueue
-    ref: main
-    src: https://github.com/LXRCore/connectqueue
-    
-  - action: download_github
-    dest: ./resources/[standalone]/progressbar
-    ref: main
-    src: https://github.com/LXRCore/progressbar
-    
-  - action: download_github
-    dest: ./resources/[standalone]/safecracker
-    ref: main
-    src: https://github.com/LXRCore/safecracker
-    
-  - action: download_github
-    dest: ./resources/[standalone]/PolyZone
-    ref: main
-    src: https://github.com/LXRCore/PolyZone
+    dest: ./resources/[standalone]
 
   - action: download_github
-    dest: ./resources/[standalone]/pma-voice
-    ref: main
     src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/[standalone]/pma-voice
 
   - action: download_github
-    dest: ./resources/[standalone]/menuv
+    src: https://github.com/LXRCore/connectqueue
     ref: main
+    dest: ./resources/[standalone]/connectqueue
+
+  - action: download_github
+    src: https://github.com/LXRCore/progressbar
+    ref: main
+    dest: ./resources/[standalone]/progressbar
+
+  - action: download_github
+    src: https://github.com/LXRCore/PolyZone
+    ref: main
+    dest: ./resources/[standalone]/PolyZone
+
+  - action: download_github
     src: https://github.com/LXRCore/menuv
+    ref: main
+    dest: ./resources/[standalone]/menuv
 
   - action: download_github
-    dest: ./resources/[standalone]/mediccamp
-    ref: main
     src: https://github.com/LXRCore/mediccamp
-
-  # Download LXRCore resources
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-adminmenu
     ref: main
-    dest: ./resources/[lxr]/lxr-adminmenu
-  
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-ambulancejob
-    ref: main
-    dest: ./resources/[lxr]/lxr-ambulancejob
+    dest: ./resources/[standalone]/mediccamp
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-banking
+    src: https://github.com/LXRCore/safecracker
     ref: main
-    dest: ./resources/[lxr]/lxr-banking
-    
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-clothing
-    ref: main
-    dest: ./resources/[lxr]/lxr-clothing
+    dest: ./resources/[standalone]/safecracker
 
+  - action: waste_time # avoid GitHub throttling
+    seconds: 8
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 4. Framework core + compatibility bridges
+  #    The bridges ship inside lxr-core/bridges and are moved into their own
+  #    category so FXServer can see them. They are NOT ensured by default —
+  #    enable the ones you need in server.cfg (only when the real resource is
+  #    not installed).
+  # ─────────────────────────────────────────────────────────────────────────────
   - action: download_github
     src: https://github.com/LXRCore/lxr-core
     ref: main
-    dest: ./resources/[lxr]/lxr-core
+    dest: ./resources/[framework]/lxr-core
 
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-doorlock
-    ref: main
-    dest: ./resources/[lxr]/lxr-doorlock
+  - action: move_path
+    src: ./resources/[framework]/lxr-core/bridges/rsg-core
+    dest: ./resources/[lxr-bridges]/rsg-core
 
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-hud
-    ref: main
-    dest: ./resources/[lxr]/lxr-hud
-    
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-input
-    ref: main
-    dest: ./resources/[lxr]/lxr-input
-    
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-interiors
-    ref: main
-    dest: ./resources/[lxr]/lxr-interiors
-    
+  - action: move_path
+    src: ./resources/[framework]/lxr-core/bridges/vorp_core
+    dest: ./resources/[lxr-bridges]/vorp_core
+
+  - action: move_path
+    src: ./resources/[framework]/lxr-core/bridges/qbr-core
+    dest: ./resources/[lxr-bridges]/qbr-core
+
+  - action: move_path
+    src: ./resources/[framework]/lxr-core/bridges/vorp_inventory
+    dest: ./resources/[lxr-bridges]/vorp_inventory
+
+  - action: remove_path
+    path: ./resources/[framework]/lxr-core/bridges
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 5. Official LXR resources — dependency order first (core chain), then the rest
+  # ─────────────────────────────────────────────────────────────────────────────
   - action: download_github
     src: https://github.com/LXRCore/lxr-inventory
     ref: main
     dest: ./resources/[lxr]/lxr-inventory
-    
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-lockpick
-    ref: main
-    dest: ./resources/[lxr]/lxr-lockpick
-    
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-management
-    ref: main
-    dest: ./resources/[lxr]/lxr-management
-    
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-menu
-    ref: main
-    dest: ./resources/[lxr]/lxr-menu
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-multicharacter
@@ -168,39 +159,62 @@ tasks:
     dest: ./resources/[lxr]/lxr-multicharacter
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-policejob
+    src: https://github.com/LXRCore/lxr-spawn
     ref: main
-    dest: ./resources/[lxr]/lxr-policejob
+    dest: ./resources/[lxr]/lxr-spawn
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-scoreboard
+    src: https://github.com/LXRCore/lxr-clothing
     ref: main
-    dest: ./resources/[lxr]/lxr-scoreboard
+    dest: ./resources/[lxr]/lxr-clothing
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-shops
+    src: https://github.com/LXRCore/lxr-hud
     ref: main
-    dest: ./resources/[lxr]/lxr-shops
-  
+    dest: ./resources/[lxr]/lxr-hud
+
   - action: download_github
-    src: https://github.com/LXRCore/lxr-smallresources
+    src: https://github.com/LXRCore/lxr-menu
     ref: main
-    dest: ./resources/[lxr]/lxr-smallresources
+    dest: ./resources/[lxr]/lxr-menu
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-input
+    ref: main
+    dest: ./resources/[lxr]/lxr-input
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-target
     ref: main
     dest: ./resources/[lxr]/lxr-target
 
+  - action: waste_time # avoid GitHub throttling
+    seconds: 8
+
   - action: download_github
-    src: https://github.com/LXRCore/lxr-spawn
+    src: https://github.com/LXRCore/lxr-adminmenu
     ref: main
-    dest: ./resources/[lxr]/lxr-spawn
-    
+    dest: ./resources/[lxr]/lxr-adminmenu
+
   - action: download_github
-    src: https://github.com/LXRCore/lxr-stable
+    src: https://github.com/LXRCore/lxr-banking
     ref: main
-    dest: ./resources/[lxr]/lxr-stable
+    dest: ./resources/[lxr]/lxr-banking
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-management
+    ref: main
+    dest: ./resources/[lxr]/lxr-management
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-policejob
+    ref: main
+    dest: ./resources/[lxr]/lxr-policejob
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-ambulancejob
+    ref: main
+    dest: ./resources/[lxr]/lxr-ambulancejob
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-weapons
@@ -208,14 +222,52 @@ tasks:
     dest: ./resources/[lxr]/lxr-weapons
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-shops
+    ref: main
+    dest: ./resources/[lxr]/lxr-shops
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-stable
+    ref: main
+    dest: ./resources/[lxr]/lxr-stable
+
+  - action: waste_time # avoid GitHub throttling
+    seconds: 8
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-doorlock
+    ref: main
+    dest: ./resources/[lxr]/lxr-doorlock
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-lockpick
+    ref: main
+    dest: ./resources/[lxr]/lxr-lockpick
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-interiors
+    ref: main
+    dest: ./resources/[lxr]/lxr-interiors
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-scoreboard
+    ref: main
+    dest: ./resources/[lxr]/lxr-scoreboard
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-smallresources
+    ref: main
+    dest: ./resources/[lxr]/lxr-smallresources
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-weathersync
+    ref: main
+    dest: ./resources/[lxr]/lxr-weathersync
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-mining
     ref: main
     dest: ./resources/[lxr]/lxr-mining
-
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-moonshine
-    ref: main
-    dest: ./resources/[lxr]/lxr-moonshine
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-farming
@@ -223,20 +275,22 @@ tasks:
     dest: ./resources/[lxr]/lxr-farming
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-contraband
-    ref: main
-    dest: ./resources/[lxr]/lxr-contraband
-
-  - action: download_github
     src: https://github.com/LXRCore/lxr-hunting
     ref: main
     dest: ./resources/[lxr]/lxr-hunting
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-weathersync
+    src: https://github.com/LXRCore/lxr-contraband
     ref: main
-    dest: ./resources/[lxr]/lxr-weathersync
-  
-  # Clean up
+    dest: ./resources/[lxr]/lxr-contraband
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-moonshine
+    ref: main
+    dest: ./resources/[lxr]/lxr-moonshine
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 6. Clean up
+  # ─────────────────────────────────────────────────────────────────────────────
   - action: remove_path
     path: ./tmp
