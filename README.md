@@ -15,7 +15,7 @@
 
 ![Recipe](https://img.shields.io/badge/recipe-3.0.0-c4a574)
 ![Engine](https://img.shields.io/badge/txAdmin_engine-3-1a1512)
-![Validated](https://img.shields.io/badge/validator-52_tasks_%C2%B7_0_errors-brightgreen)
+![Validated](https://img.shields.io/badge/validator-54_tasks_%C2%B7_0_errors-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-RedM-100e0c)
 
 Deploys a complete LXRCore v3 server from an empty txAdmin profile:
@@ -42,7 +42,7 @@ Requirements: FXServer build 7290+, MariaDB 10.6+ / MySQL 8, OneSync **on**
 | Standalone | `oxmysql` (CommunityOx release), `pma-voice`, `connectqueue`, `progressbar`, `PolyZone`, `menuv`, `mediccamp`, `safecracker` |
 | Framework | `resources/[framework]/lxr-core` |
 | Bridges | `resources/[lxr-bridges]/{rsg-core, vorp_core, qbr-core, vorp_inventory}` — moved out of `lxr-core/bridges`, **not ensured by default** |
-| Official resources | `resources/[lxr]/…` (28 resources) |
+| Official resources | `resources/[lxr]/…` (31 resources) |
 
 `server.cfg` ensures the core chain explicitly (`oxmysql → lxr-core →
 lxr-inventory → lxr-multicharacter → lxr-spawn → lxr-clothing → lxr-hud`)
@@ -80,7 +80,7 @@ name for `cfx-server-data`.
 |---|---|
 | YAML structure, task fields, unique destinations | ✅ validator |
 | every `ensure` maps to a downloaded resource | ✅ validator |
-| all 39 GitHub sources reachable at the pinned ref | ✅ validator `--online` (2026-09-17) |
+| all 41 GitHub sources reachable at the pinned ref | ✅ validator `--online` (2026-09-17) |
 | SQL idempotent | ✅ validator |
 | full txAdmin deployment on a clean machine | **NOT TESTED** yet — requires a live FXServer + database |
 | official resources audited against lxr-core v3 | in progress (core serves their legacy API; see the org README) |

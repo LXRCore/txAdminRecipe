@@ -53,6 +53,11 @@ ACTIONS = {
 }
 
 errors, warnings = [], []
+RESOURCE_TASKS = {}
+
+
+def dest_is_resource(i):
+    return RESOURCE_TASKS.get(i, False)
 
 
 def err(msg):
@@ -101,6 +106,7 @@ def validate_tasks(tasks):
                 err(f"task {i}: dest {dest} must be under ./resources or ./tmp")
             created.add(dest.rstrip("/"))
             repos.append((i, src, task.get("ref", "main"), task.get("subpath")))
+            RESOURCE_TASKS[i] = dest.startswith("./resources/") and not task.get("subpath")
         elif action == "download_file":
             created.add(task["path"])
         elif action == "unzip":
@@ -196,6 +202,11 @@ def check_online(repos):
             return
         if out.returncode != 0:
             err(f"task {i}: {repo}@{ref} not reachable: {out.stderr.strip()[:80]}")
+        elif dest_is_resource(i):
+            chk = subprocess.run(["gh", "api", f"repos/{repo}/contents/fxmanifest.lua?ref={ref}", "--jq", ".name"],
+                                 capture_output=True, text=True, timeout=30)
+            if chk.returncode != 0:
+                err(f"task {i}: {repo}@{ref} has no fxmanifest.lua at its root — FXServer cannot start it")
         elif subpath:
             chk = subprocess.run(["gh", "api", f"repos/{repo}/contents/{subpath}?ref={ref}", "--jq", "length"],
                                  capture_output=True, text=True, timeout=30)

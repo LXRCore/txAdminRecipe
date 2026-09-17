@@ -285,9 +285,19 @@ tasks:
     dest: ./resources/[lxr]/lxr-contraband
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-moonshine
+    src: https://github.com/LXRCore/lxr-anticheat
     ref: main
-    dest: ./resources/[lxr]/lxr-moonshine
+    dest: ./resources/[lxr]/lxr-anticheat
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-blindfold
+    ref: main
+    dest: ./resources/[lxr]/lxr-blindfold
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-jobalerts
+    ref: main
+    dest: ./resources/[lxr]/lxr-jobalerts
 
   # ─────────────────────────────────────────────────────────────────────────────
   # 6. Clean up
