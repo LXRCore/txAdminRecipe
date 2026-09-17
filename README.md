@@ -46,9 +46,11 @@ Requirements: FXServer build 7290+, MariaDB 10.6+ / MySQL 8, OneSync **on**
 | Bridges | `resources/[lxr-bridges]/{rsg-core, vorp_core, qbr-core, vorp_inventory}` — moved out of `lxr-core/bridges`, **not ensured by default** |
 | Official resources | `resources/[lxr]/…` (31 resources) |
 
-`server.cfg` ensures the core chain explicitly (`oxmysql → lxr-core →
-lxr-inventory → lxr-clothing → lxr-creator → lxr-spawn → lxr-horses → lxr-trains → lxr-me → lxr-hud`)
-and then the categories, so start order is deterministic. Permission groups
+`server.cfg` ensures the boot order explicitly (`oxmysql → lxr-core → lxr-nui →
+lxr-mapcolor → lxr-inventory → lxr-clothing → lxr-creator → lxr-barber →
+lxr-spawn → lxr-me → lxr-horses → lxr-trains → lxr-hud`) and then the
+categories; every manifest declares the same dependencies, so the order holds
+even when lines move. The reasoning is in [docs/BOOT-ORDER.md](docs/BOOT-ORDER.md). Permission groups
 are `lxrcore.<group>`; the txAdmin master account inherits `lxrcore.god`.
 
 ## Running RSG / VORP / QBR resources on this server

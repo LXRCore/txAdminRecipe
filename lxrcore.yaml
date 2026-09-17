@@ -149,6 +149,11 @@ tasks:
   # 5. Official LXR resources — dependency order first (core chain), then the rest
   # ─────────────────────────────────────────────────────────────────────────────
   - action: download_github
+    src: https://github.com/LXRCore/lxr-nui
+    ref: main
+    dest: ./resources/[lxr]/lxr-nui
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-inventory
     ref: main
     dest: ./resources/[lxr]/lxr-inventory
@@ -157,6 +162,11 @@ tasks:
     src: https://github.com/LXRCore/lxr-creator
     ref: main
     dest: ./resources/[lxr]/lxr-creator
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-barber
+    ref: main
+    dest: ./resources/[lxr]/lxr-barber
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-spawn
