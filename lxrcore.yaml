@@ -227,9 +227,24 @@ tasks:
     dest: ./resources/[lxr]/lxr-shops
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-stable
+    src: https://github.com/LXRCore/lxr-horses
     ref: main
-    dest: ./resources/[lxr]/lxr-stable
+    dest: ./resources/[lxr]/lxr-horses
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-trains
+    ref: main
+    dest: ./resources/[lxr]/lxr-trains
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-me
+    ref: main
+    dest: ./resources/[lxr]/lxr-me
+
+  - action: download_github
+    src: https://github.com/LXRCore/lxr-mapcolor
+    ref: main
+    dest: ./resources/[standalone]/lxr-mapcolor
 
   - action: waste_time # avoid GitHub throttling
     seconds: 8

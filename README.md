@@ -6,12 +6,14 @@
     ███████╗██╔╝ ██╗██║  ██║      ╚██████╗╚██████╔╝██║  ██║███████╗
     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
 
-    🐺 LXRCore txAdmin Recipe — clean RedM server → LXRCore v3
+    LXRCore txAdmin Recipe — clean RedM server → LXRCore v3
     Developer: iBoss21 / LXRCore · https://www.lxrcore.com
     © 2026 iBoss21 / LXRCore | lxrcore.com | All Rights Reserved
 -->
 
-# 🐺 LXRCore txAdmin Recipe (v3)
+<img src="https://raw.githubusercontent.com/LXRCore/.github/main/profile/lxrcore-logo.png" alt="LXRCore" width="72" align="left" style="margin-right:12px">
+
+# LXRCore txAdmin Recipe (v3)
 
 ![Recipe](https://img.shields.io/badge/recipe-3.0.0-c4a574)
 ![Engine](https://img.shields.io/badge/txAdmin_engine-3-1a1512)
@@ -94,6 +96,6 @@ there, deploy from a fork or change `ref:` to the release tag you want.
 |---|---|
 | 🌐 Website | [lxrcore.com](https://www.lxrcore.com) |
 | 🛠 Dev Discord | [discord.gg/ZHMKVYyhBa](https://discord.gg/ZHMKVYyhBa) |
-| 🐺 Community | [discord.gg/wolvesland](https://discord.gg/wolvesland) |
+| Community | [discord.gg/wolvesland](https://discord.gg/wolvesland) |
 
 > © 2026 iBoss21 / LXRCore | [lxrcore.com](https://www.lxrcore.com) | All Rights Reserved
