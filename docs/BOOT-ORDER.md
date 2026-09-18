@@ -22,7 +22,8 @@ and the one to keep when adding resources by hand.
 | 12 | `lxr-trains` | core | managed lines, stations, tickets |
 | 13 | `lxr-hud` | core, nui | needs, consumables, the frame |
 | 14 | `lxr-weapons` | core, nui, inventory | weapon and cartridge items become usable here; the HUD reads the `weapon` state bag |
-| 15 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
+| 15 | `lxr-doors` | core, interact | lock states before the law and the bank register their doors |
+| 16 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules
 

@@ -250,9 +250,9 @@ tasks:
     seconds: 8
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-doorlock
+    src: https://github.com/LXRCore/lxr-doors
     ref: main
-    dest: ./resources/[lxr]/lxr-doorlock
+    dest: ./resources/[lxr]/lxr-doors
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-lockpick
