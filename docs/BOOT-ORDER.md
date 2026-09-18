@@ -11,6 +11,7 @@ and the one to keep when adding resources by hand.
 | 2 | `lxr-core` | oxmysql | framework API (`GetCoreObject`, `GetLXR`, RPC, Commands, Prompts, Notify, Log, DB, Items, Player), catalog + 1899 ledger, migrations |
 | 3 | `lxr-nui` | — (uses core when present) | the kit provider: toasts, menus, inputs, progress. Core's `Config.Notify.backend = 'auto'` routes notifications here once it is started |
 | 4 | `lxr-mapcolor` | — | route and blip colours; other resources probe `GetResourceState('lxr-mapcolor')` at runtime, never at boot |
+| 4a | `lxr-weather` | core | the calendar and the sky — `GlobalState.hour` before anything with opening hours |
 | 4b | `lxr-interact` | core | the interaction layer — every later resource registers its points, zones, models and entities here |
 | 5 | `lxr-inventory` | core | items, stashes, usable items — before anything that hands items out |
 | 6 | `lxr-clothing` | core | the appearance engine: game tables, validator, apply layer, tailor + wardrobe doors |

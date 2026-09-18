@@ -275,9 +275,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-smallresources
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-weathersync
+    src: https://github.com/LXRCore/lxr-weather
     ref: main
-    dest: ./resources/[lxr]/lxr-weathersync
+    dest: ./resources/[lxr]/lxr-weather
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-mining
