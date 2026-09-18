@@ -184,16 +184,6 @@ tasks:
     dest: ./resources/[lxr]/lxr-hud
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-menu
-    ref: main
-    dest: ./resources/[lxr]/lxr-menu
-
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-input
-    ref: main
-    dest: ./resources/[lxr]/lxr-input
-
-  - action: download_github
     src: https://github.com/LXRCore/lxr-interact
     ref: main
     dest: ./resources/[lxr]/lxr-interact
