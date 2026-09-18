@@ -325,6 +325,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-love
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-storage
+    ref: main
+    dest: ./resources/[lxr]/lxr-storage
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
