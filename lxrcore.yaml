@@ -265,9 +265,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-interiors
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-scoreboard
+    src: https://github.com/LXRCore/lxr-census
     ref: main
-    dest: ./resources/[lxr]/lxr-scoreboard
+    dest: ./resources/[lxr]/lxr-census
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-smallresources
