@@ -202,9 +202,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-bank
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-management
+    src: https://github.com/LXRCore/lxr-business
     ref: main
-    dest: ./resources/[lxr]/lxr-management
+    dest: ./resources/[lxr]/lxr-business
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-lawman

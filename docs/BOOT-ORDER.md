@@ -30,7 +30,8 @@ and the one to keep when adding resources by hand.
 | 19 | `lxr-dispatch` | core, nui | the wire — before the law and the doctors |
 | 20 | `lxr-lawman` | core, nui, inventory, interact | the law, after dispatch and the bank it pays into |
 | 21 | `lxr-doctor` | core, nui, inventory, interact | death and the doctors |
-| 22 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
+| 22 | `lxr-business` | core, nui, interact, bank | the ledgers |
+| 23 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules
 
