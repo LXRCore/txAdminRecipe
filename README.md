@@ -15,7 +15,7 @@
 
 # LXRCore txAdmin Recipe (v3)
 
-![Recipe](https://img.shields.io/badge/recipe-3.0.0-c4a574)
+![Recipe](https://img.shields.io/badge/recipe-3.0.0-c21c37)
 ![Engine](https://img.shields.io/badge/txAdmin_engine-3-1a1512)
 ![Validated](https://img.shields.io/badge/validator-54_tasks_%C2%B7_0_errors-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-RedM-100e0c)
