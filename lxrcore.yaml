@@ -315,6 +315,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-contraband
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-moonshine
+    ref: main
+    dest: ./resources/[lxr]/lxr-moonshine
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
