@@ -320,6 +320,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-moonshine
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-love
+    ref: main
+    dest: ./resources/[lxr]/lxr-love
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
