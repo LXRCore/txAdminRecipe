@@ -345,6 +345,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-post
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-safe
+    ref: main
+    dest: ./resources/[lxr]/lxr-safe
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
