@@ -207,9 +207,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-management
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-policejob
+    src: https://github.com/LXRCore/lxr-lawman
     ref: main
-    dest: ./resources/[lxr]/lxr-policejob
+    dest: ./resources/[lxr]/lxr-lawman
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-ambulancejob

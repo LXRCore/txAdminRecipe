@@ -28,7 +28,8 @@ and the one to keep when adding resources by hand.
 | 17 | `lxr-shops` | core, nui, inventory, interact | counters from the catalog |
 | 18 | `lxr-bank` | core, nui, inventory, interact | books before the law, businesses and payroll need them |
 | 19 | `lxr-dispatch` | core, nui | the wire — before the law and the doctors |
-| 20 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
+| 20 | `lxr-lawman` | core, nui, inventory, interact | the law, after dispatch and the bank it pays into |
+| 21 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules
 
