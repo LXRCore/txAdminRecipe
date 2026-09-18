@@ -295,11 +295,6 @@ tasks:
     dest: ./resources/[lxr]/lxr-hunting
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-contraband
-    ref: main
-    dest: ./resources/[lxr]/lxr-contraband
-
-  - action: download_github
     src: https://github.com/LXRCore/lxr-anticheat
     ref: main
     dest: ./resources/[lxr]/lxr-anticheat
