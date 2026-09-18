@@ -310,9 +310,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-blindfold
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-jobalerts
+    src: https://github.com/LXRCore/lxr-dispatch
     ref: main
-    dest: ./resources/[lxr]/lxr-jobalerts
+    dest: ./resources/[lxr]/lxr-dispatch
 
   # ─────────────────────────────────────────────────────────────────────────────
   # 6. Clean up
