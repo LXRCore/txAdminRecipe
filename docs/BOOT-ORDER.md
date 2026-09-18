@@ -35,7 +35,7 @@ and the one to keep when adding resources by hand.
 | 24 | `lxr-contraband` | core, interact, dispatch | running contracts — after the wire it tips off |
 | 25 | `lxr-farming`, `lxr-hunting`, `lxr-mining`, `lxr-moonshine`, `lxr-interiors` | core, interact, weather, dispatch | the trades — plants read the season; poaching goes on the wire |
 | 26 | `lxr-admin`, `lxr-census`, `lxr-warden`, `lxr-frontier` | core, doctor, weather, interact | staff and the small things — after everything they reach into |
-| 27 | `lxr-love`, `lxr-storage`, `lxr-market` | core, nui, inventory, interact | paired interactions; rented lock-ups; the second-hand stalls |
+| 27 | `lxr-love`, `lxr-storage`, `lxr-market`, `lxr-craft` | core, nui, inventory, interact | paired interactions; rented lock-ups; the second-hand stalls; the craft book |
 | 28 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules

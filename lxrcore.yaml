@@ -335,6 +335,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-market
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-craft
+    ref: main
+    dest: ./resources/[lxr]/lxr-craft
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
