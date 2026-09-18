@@ -34,7 +34,8 @@ and the one to keep when adding resources by hand.
 | 23 | `lxr-lasso`, `lxr-blindfold` | core, interact | restraints (blindfold reads the cuffed / tied state bags) |
 | 24 | `lxr-contraband` | core, interact, dispatch | running contracts — after the wire it tips off |
 | 25 | `lxr-farming`, `lxr-hunting`, `lxr-mining`, `lxr-moonshine`, `lxr-interiors` | core, interact, weather, dispatch | the trades — plants read the season; poaching goes on the wire |
-| 26 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
+| 26 | `lxr-admin` | core, doctor, weather | the staff desk — after everything it reaches into |
+| 27 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules
 

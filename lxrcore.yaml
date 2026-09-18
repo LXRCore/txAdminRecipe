@@ -192,9 +192,9 @@ tasks:
     seconds: 8
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-adminmenu
+    src: https://github.com/LXRCore/lxr-admin
     ref: main
-    dest: ./resources/[lxr]/lxr-adminmenu
+    dest: ./resources/[lxr]/lxr-admin
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-bank
