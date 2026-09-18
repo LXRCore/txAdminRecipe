@@ -295,9 +295,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-hunting
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-anticheat
+    src: https://github.com/LXRCore/lxr-warden
     ref: main
-    dest: ./resources/[lxr]/lxr-anticheat
+    dest: ./resources/[lxr]/lxr-warden
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-lasso
