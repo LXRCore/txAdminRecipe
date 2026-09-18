@@ -212,9 +212,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-lawman
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-ambulancejob
+    src: https://github.com/LXRCore/lxr-doctor
     ref: main
-    dest: ./resources/[lxr]/lxr-ambulancejob
+    dest: ./resources/[lxr]/lxr-doctor
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-weapons
