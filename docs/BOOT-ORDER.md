@@ -19,7 +19,9 @@ and the one to keep when adding resources by hand.
 | 10 | `lxr-me` | core | overlay |
 | 11 | `lxr-horses` | core, inventory | catalog horses, feed / brush / deed items |
 | 12 | `lxr-trains` | core | managed lines, stations, tickets |
-| 13 | `lxr-hud`, `lxr-weapons`, `[lxr]`, `[standalone]` | core | consumers |
+| 13 | `lxr-hud` | core, nui | needs, consumables, the frame |
+| 14 | `lxr-weapons` | core, nui, inventory | weapon and cartridge items become usable here; the HUD reads the `weapon` state bag |
+| 15 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules
 
