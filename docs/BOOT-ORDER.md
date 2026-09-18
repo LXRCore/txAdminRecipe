@@ -25,7 +25,8 @@ and the one to keep when adding resources by hand.
 | 15 | `lxr-doors` | core, interact | lock states before the law and the bank register their doors |
 | 16 | `lxr-lockpick` | core | the minigame doors call back into |
 | 17 | `lxr-shops` | core, nui, inventory, interact | counters from the catalog |
-| 18 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
+| 18 | `lxr-bank` | core, nui, inventory, interact | books before the law, businesses and payroll need them |
+| 19 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules
 

@@ -197,9 +197,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-adminmenu
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-banking
+    src: https://github.com/LXRCore/lxr-bank
     ref: main
-    dest: ./resources/[lxr]/lxr-banking
+    dest: ./resources/[lxr]/lxr-bank
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-management
