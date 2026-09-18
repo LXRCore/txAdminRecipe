@@ -194,9 +194,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-input
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-target
+    src: https://github.com/LXRCore/lxr-interact
     ref: main
-    dest: ./resources/[lxr]/lxr-target
+    dest: ./resources/[lxr]/lxr-interact
 
   - action: waste_time # avoid GitHub throttling
     seconds: 8
