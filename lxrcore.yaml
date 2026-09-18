@@ -350,6 +350,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-safe
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-camp
+    ref: main
+    dest: ./resources/[lxr]/lxr-camp
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
