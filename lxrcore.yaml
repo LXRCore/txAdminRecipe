@@ -270,9 +270,9 @@ tasks:
     dest: ./resources/[lxr]/lxr-census
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-smallresources
+    src: https://github.com/LXRCore/lxr-frontier
     ref: main
-    dest: ./resources/[lxr]/lxr-smallresources
+    dest: ./resources/[lxr]/lxr-frontier
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-weather
