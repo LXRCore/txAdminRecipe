@@ -305,6 +305,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-anticheat
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-lasso
+    ref: main
+    dest: ./resources/[lxr]/lxr-lasso
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-blindfold
     ref: main
     dest: ./resources/[lxr]/lxr-blindfold

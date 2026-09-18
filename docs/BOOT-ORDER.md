@@ -31,7 +31,8 @@ and the one to keep when adding resources by hand.
 | 20 | `lxr-lawman` | core, nui, inventory, interact | the law, after dispatch and the bank it pays into |
 | 21 | `lxr-doctor` | core, nui, inventory, interact | death and the doctors |
 | 22 | `lxr-business` | core, nui, interact, bank | the ledgers |
-| 23 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
+| 23 | `lxr-lasso`, `lxr-blindfold` | core, interact | restraints (blindfold reads the cuffed / tied state bags) |
+| 24 | `[lxr]`, `[standalone]` | core | consumers — see the workspace `docs/CHAIN.md` for the tiers |
 
 ## Rules
 
