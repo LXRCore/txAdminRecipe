@@ -10,6 +10,7 @@ and the one to keep when adding resources by hand.
 | 1 | `oxmysql` | — | database |
 | 2 | `lxr-core` | oxmysql | framework API (`GetCoreObject`, `GetLXR`, RPC, Commands, Prompts, Notify, Log, DB, Items, Player), catalog + 1899 ledger, migrations |
 | 3 | `lxr-nui` | — (uses core when present) | the kit provider: toasts, menus, inputs, progress. Core's `Config.Notify.backend = 'auto'` routes notifications here once it is started |
+| 3 | `lxr-loading` | core | the loading screen (`loadscreen`, manual shutdown once the session is up) |
 | 4 | `lxr-mapcolor` | — | route and blip colours; other resources probe `GetResourceState('lxr-mapcolor')` at runtime, never at boot |
 | 4a | `lxr-weather` | core | the calendar and the sky — `GlobalState.hour` before anything with opening hours |
 | 4b | `lxr-interact` | core | the interaction layer — every later resource registers its points, zones, models and entities here |
