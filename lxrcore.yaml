@@ -31,7 +31,7 @@ $steamRequired: false
 name: LXRCore Framework RedM
 version: 3.0.0
 author: iBoss21 / LXRCore
-description: LXRCore v3 — RedM framework core with RSG / VORP / QBR compatibility adapters, official LXR resources and a migrated database.
+description: LXRCore v3 — an independent RedM framework. One core, one interface kit, one chain of resources. 1899, wolves.land.
 
 tasks:
   # ─────────────────────────────────────────────────────────────────────────────
