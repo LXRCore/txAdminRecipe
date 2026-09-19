@@ -162,8 +162,21 @@ def validate_cfg(names, categories):
         if m:
             ensures.append((n, m.group(2)))
             continue
-        if not re.match(r"^(set|sets|setr|sv_\w+|add_ace|add_principal|remove_principal|exec|load_server_icon|endpoint_add_\w+|\{\{\w+\}\})", line):
+        if not re.match(r"^(set|sets|setr|sv_\w+|net_\w+|increase_pool_size|rcon_password|add_ace|add_principal|remove_principal|exec|load_server_icon|endpoint_add_\w+|\{\{\w+\}\})", line):
             err(f"server.cfg:{n}: unrecognised directive: {line[:60]}")
+    # pool sizes: never above the GSS ceiling (tools/pool-limits-redm.json is a cached copy of
+    # https://gss.cfx-services.net/v1/public/pool-size-limits/redm)
+    try:
+        import json
+        caps = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "pool-limits-redm.json"), encoding="utf-8"))
+        for n, raw in enumerate(lines, 1):
+            m = re.match(r'^increase_pool_size\s+"(\w+)"\s+(\d+)', raw.strip())
+            if not m: continue
+            cap = caps.get(m.group(1))
+            if cap is None: err(f"server.cfg:{n}: pool {m.group(1)} is not in the GSS list")
+            elif int(m.group(2)) > int(cap): err(f"server.cfg:{n}: pool {m.group(1)} {m.group(2)} above the GSS ceiling {cap}")
+    except FileNotFoundError:
+        pass
     for n, target in ensures:
         if target in names or target in categories or target in CFX_DEFAULTS or target == "oxmysql":
             continue
