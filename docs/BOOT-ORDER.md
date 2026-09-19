@@ -16,9 +16,8 @@ and the one to keep when adding resources by hand.
 | 4b | `lxr-interact` | core | the interaction layer — every later resource registers its points, zones, models and entities here |
 | 5 | `lxr-inventory` | core | items, stashes, usable items — before anything that hands items out |
 | 6 | `lxr-clothing` | core | the appearance engine: game tables, validator, apply layer, tailor + wardrobe doors |
-| 7 | `lxr-creator` | core, clothing | loads `@lxr-clothing/shared/*`, writes the first look through `SaveAppearance` |
+| 7 | `lxr-creator` | core, clothing | loads `@lxr-clothing/shared/*`, writes the first look through `SaveAppearance`; the spawn step (towns, last position, arrival protection) is its last page |
 | 8 | `lxr-barber` | core, clothing | same engine dependency; writes through `SaveBarber` |
-| 9 | `lxr-spawn` | core | listens for `lxr-spawn:client:setupSpawnUI` from the creator |
 | 10 | `lxr-me` | core | overlay |
 | 11 | `lxr-horses` | core, inventory | catalog horses, feed / brush / deed items |
 | 12 | `lxr-trains` | core | managed lines, stations, tickets |
@@ -47,7 +46,7 @@ and the one to keep when adding resources by hand.
 * **Runtime probes, never boot-time assumptions.** Optional integrations
   (`lxr-mapcolor`, `ox_lib`) are checked with `GetResourceState` when used.
 * **One hand-off chain for a new player:** `lxr-creator` (select → identity →
-  traits → appearance → create) → `lxr-spawn` (picker) → world. No other
+  traits → appearance → create → where the story starts) → world. No other
   resource may open UI during that chain.
 * **Migrations run in core's order** — a resource registers its migration with
   `LXRCore.DB.RegisterMigration(resource, id, sql)` at start and core applies

@@ -1,70 +1,42 @@
 --[[
-  ██╗     ██╗  ██╗██████╗        ██████╗ ██████╗ ██████╗ ███████╗
-  ██║     ╚██╗██╔╝██╔══██╗      ██╔════╝██╔═══██╗██╔══██╗██╔════╝
-  ██║      ╚███╔╝ ██████╔╝█████╗██║     ██║   ██║██████╔╝█████╗
-  ██║      ██╔██╗ ██╔══██╗╚════╝██║     ██║   ██║██╔══██╗██╔══╝
-  ███████╗██╔╝ ██╗██║  ██║      ╚██████╗╚██████╔╝██║  ██║███████╗
-  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
-  ════════════════════════════════════════════════════════════════
-  🐺 Template Resource — Example Looting System
-  Production-Ready Reference Implementation
-  ════════════════════════════════════════════════════════════════
-  SERVER INFORMATION
-  ──────────────────────────────────────────────────────────────
-  Server:    The Land of Wolves 🐺
-  Developer: iBoss21 / The Lux Empire
-  Website:   https://www.wolves.land
-  Discord:   https://discord.gg/CrKcWdfd3A
-  Store:     https://theluxempire.tebex.io
-  ════════════════════════════════════════════════════════════════
-  © 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
-  ════════════════════════════════════════════════════════════════
+    ██╗     ██╗  ██╗██████╗       ████████╗███████╗███╗   ███╗██████╗ ██╗      █████╗ ████████╗███████╗
+    ██║     ╚██╗██╔╝██╔══██╗      ╚══██╔══╝██╔════╝████╗ ████║██╔══██╗██║     ██╔══██╗╚══██╔══╝██╔════╝
+    ██║      ╚███╔╝ ██████╔╝█████╗   ██║   █████╗  ██╔████╔██║██████╔╝██║     ███████║   ██║   █████╗
+    ██║      ██╔██╗ ██╔══██╗╚════╝   ██║   ██╔══╝  ██║╚██╔╝██║██╔═══╝ ██║     ██╔══██║   ██║   ██╔══╝
+    ███████╗██╔╝ ██╗██║  ██║         ██║   ███████╗██║ ╚═╝ ██║██║     ███████╗██║  ██║   ██║   ███████╗
+    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝         ╚═╝   ╚══════╝╚═╝     ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
+
+    🐺 LXR Core - Starter for a third-party resource
+
+    Copy this folder, rename it, and build on the native LXRCore v3 API.
+    Free to use and change for anything that runs on an LXRCore server.
+
+    Brand:       LXRCore — Lux Empire eXperience RedM Core
+    Website:     https://www.lxrcore.com
+    Discord:     https://discord.gg/GAhk8cgXe9
+    GitHub:      https://github.com/LXRCore
+
+    © 2026 iBoss21 / LXRCore | lxrcore.com
 ]]
 
--- ═══════════════════════════════════════════════════════════
--- ██████ MANIFEST METADATA ██████████████████████████████████
--- ═══════════════════════════════════════════════════════════
 fx_version 'cerulean'
 game 'rdr3'
-
--- ═══════════════════════════════════════════════════════════
--- ██████ REDM PRERELEASE WARNING ████████████████████████████
--- ═══════════════════════════════════════════════════════════
 rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
-
 lua54 'yes'
 
 name 'template-resource'
-author 'iBoss21 / The Lux Empire'
-description 'Production-ready template resource demonstrating LXR coding standards - Example looting system | wolves.land'
+author 'your name'
+description 'A starter resource on the LXRCore v3 native API'
 version '1.0.0'
-repository 'https://github.com/LXRCore/txAdminRecipe'
 
--- ═══════════════════════════════════════════════════════════
--- ██████ SHARED SCRIPTS █████████████████████████████████████
--- ═══════════════════════════════════════════════════════════
 shared_scripts {
-    'config.lua',
+    '@lxr-core/shared/import.lua',   -- LXRShared (items, helpers) in this VM
     'shared/locale.lua',
-    'shared/framework.lua'
+    'locales/*.lua',
+    'config.lua',
 }
 
--- ═══════════════════════════════════════════════════════════
--- ██████ CLIENT SCRIPTS █████████████████████████████████████
--- ═══════════════════════════════════════════════════════════
-client_scripts {
-    'client/main.lua'
-}
+client_script 'client/main.lua'
+server_script 'server/main.lua'
 
--- ═══════════════════════════════════════════════════════════
--- ██████ SERVER SCRIPTS █████████████████████████████████████
--- ═══════════════════════════════════════════════════════════
-server_scripts {
-    'server/main.lua'
-}
-
--- ═══════════════════════════════════════════════════════════
--- ██████ DEPENDENCIES ███████████████████████████████████████
--- ═══════════════════════════════════════════════════════════
--- NO HARD DEPENDENCIES - Supports Multi-Framework Detection
--- Optional: ox_target, ox_lib for enhanced features
+dependency 'lxr-core'

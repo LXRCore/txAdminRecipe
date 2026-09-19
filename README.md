@@ -41,14 +41,15 @@ Requirements: FXServer build 7290+, MariaDB 10.6+ / MySQL 8, OneSync **on**
 | Base files | `server.cfg`, `myLogo.png` |
 | Database | `lxrcore.sql` = lxr-core schema (`players`, `bans`, `lxr_ledger`, `lxr_migrations`) + tables owned by the official resources |
 | Cfx defaults | `resources/[cfx-default]` from `citizenfx/cfx-server-data@master` |
-| Standalone | `oxmysql` (CommunityOx release), `pma-voice`, `connectqueue`, `progressbar`, `PolyZone`, `menuv`, `mediccamp`, `safecracker` |
+| Standalone | `oxmysql` (CommunityOx release), `pma-voice`, `PolyZone`, `menuv`, `mediccamp`, `safecracker` |
 | Framework | `resources/[framework]/lxr-core` |
 | Bridges | `resources/[lxr-bridges]/{rsg-core, vorp_core, qbr-core, vorp_inventory}` — moved out of `lxr-core/bridges`, **not ensured by default** |
 | Official resources | `resources/[lxr]/…` (31 resources) |
+| Your own resources | start from [`template-resource/`](template-resource/) — a free, working starter on the native v3 API (config, locales EN/KA, one RPC, one prompt, one command) |
 
 `server.cfg` ensures the boot order explicitly (`oxmysql → lxr-core → lxr-nui →
 lxr-mapcolor → lxr-inventory → lxr-clothing → lxr-creator → lxr-barber →
-lxr-spawn → lxr-me → lxr-horses → lxr-trains → lxr-hud`) and then the
+lxr-me → lxr-horses → lxr-trains → lxr-hud`) and then the
 categories; every manifest declares the same dependencies, so the order holds
 even when lines move. The reasoning is in [docs/BOOT-ORDER.md](docs/BOOT-ORDER.md). Permission groups
 are `lxrcore.<group>`; the txAdmin master account inherits `lxrcore.god`.
@@ -97,7 +98,7 @@ there, deploy from a fork or change `ref:` to the release tag you want.
 | | |
 |---|---|
 | 🌐 Website | [lxrcore.com](https://www.lxrcore.com) |
-| 🛠 Dev Discord | [discord.gg/ZHMKVYyhBa](https://discord.gg/ZHMKVYyhBa) |
+| 🛠 Dev Discord | [discord.gg/ZHMKVYyhBa](https://discord.gg/GAhk8cgXe9) |
 | Community | [discord.gg/wolvesland](https://discord.gg/wolvesland) |
 
 > © 2026 iBoss21 / LXRCore | [lxrcore.com](https://www.lxrcore.com) | All Rights Reserved
