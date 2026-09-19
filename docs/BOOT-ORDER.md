@@ -23,8 +23,8 @@ and the one to keep when adding resources by hand.
 | 11 | `lxr-horses` | core, inventory | catalog horses, feed / brush / deed items |
 | 12 | `lxr-trains` | core | managed lines, stations, tickets |
 | 13 | `lxr-hud` | core, nui | needs, consumables, the frame |
-| 13a | `lxr-radial` | core | the action wheel; other resources add entries at runtime (`exports['lxr-radial']:Add`) |
-| 13b | `lxr-clothingradial` | clothing, radial | the clothing wheel (murphy_radialmenu fork, GPL-3); lxr-radial's *Clothing* hands over to it when present |
+| 13a | `lxr-clothingradial` | clothing | the action wheel (F1) + clothing wheel (J) — murphy_radialmenu fork, GPL-3 |
+| 13b | `lxr-radial` | core | our own action wheel, off by default (both hold F1); with lxr-clothingradial `Config.FullWheel = false` it takes the wheel back and hands *Clothing* over |
 | — | `lxr-vehicles` | core, interact | the first motor cars; **off by default** — prop bodies on an invisible wagon desync between players |
 | 14 | `lxr-weapons` | core, nui, inventory | weapon and cartridge items become usable here; the HUD reads the `weapon` state bag |
 | 15 | `lxr-doors` | core, interact | lock states before the law and the bank register their doors |
