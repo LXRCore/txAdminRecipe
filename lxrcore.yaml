@@ -359,6 +359,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-radial
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-vehicles
+    ref: main
+    dest: ./resources/[lxr]/lxr-vehicles
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
