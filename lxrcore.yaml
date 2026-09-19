@@ -231,6 +231,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-me
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-emotes
+    ref: main
+    dest: ./resources/[lxr]/lxr-emotes
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-mapcolor
     ref: main
     dest: ./resources/[standalone]/lxr-mapcolor

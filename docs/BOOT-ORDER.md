@@ -20,6 +20,7 @@ and the one to keep when adding resources by hand.
 | 7 | `lxr-creator` | core, clothing | loads `@lxr-clothing/shared/*`, writes the first look through `SaveAppearance`; the spawn step (towns, last position, arrival protection) is its last page |
 | 8 | `lxr-barber` | core, clothing | same engine dependency; writes through `SaveBarber` |
 | 10 | `lxr-me` | core | overlay |
+| 10 | `lxr-emotes` | core | emotes, scenarios, walk styles |
 | 11 | `lxr-horses` | core, inventory | catalog horses, feed / brush / deed items |
 | 12 | `lxr-trains` | core | managed lines, stations, tickets |
 | 13 | `lxr-hud` | core, nui | needs, consumables, the frame |
