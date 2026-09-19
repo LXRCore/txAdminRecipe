@@ -62,9 +62,13 @@ tasks:
   # ─────────────────────────────────────────────────────────────────────────────
   # 3. Cfx defaults and standalone dependencies
   # ─────────────────────────────────────────────────────────────────────────────
+  # Pinned to the last commit before upstream's 2026-08-24 "cleanup server-data", which
+  # removed chat, sessionmanager(-rdr3), hardcap, rconlog and the yarn/webpack builders from
+  # the repository (recent official artifacts ship them built in; custom or feature-branch
+  # artifacts may not). With this ref the folders are always on disk.
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
-    ref: master
+    ref: e265cb251c88260533c847d4a1a2838c7d828a66
     subpath: resources
     dest: ./resources/[cfx-default]
 
