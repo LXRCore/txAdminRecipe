@@ -86,16 +86,6 @@ tasks:
     dest: ./resources/[standalone]/pma-voice
 
   - action: download_github
-    src: https://github.com/LXRCore/connectqueue
-    ref: main
-    dest: ./resources/[standalone]/connectqueue
-
-  - action: download_github
-    src: https://github.com/LXRCore/progressbar
-    ref: main
-    dest: ./resources/[standalone]/progressbar
-
-  - action: download_github
     src: https://github.com/LXRCore/PolyZone
     ref: main
     dest: ./resources/[standalone]/PolyZone
