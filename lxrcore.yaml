@@ -349,6 +349,11 @@ tasks:
     dest: ./resources/[lxr]/lxr-camp
 
   - action: download_github
+    src: https://github.com/LXRCore/lxr-loading
+    ref: main
+    dest: ./resources/[lxr]/lxr-loading
+
+  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
