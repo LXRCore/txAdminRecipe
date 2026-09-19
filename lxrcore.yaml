@@ -356,7 +356,7 @@ tasks:
   - action: download_github
     src: https://github.com/LXRCore/lxr-radial
     ref: main
-    dest: ./resources/[lxr]/lxr-radial
+    dest: ./resources/[lxr-optional]/lxr-radial   # our own wheel, not ensured: [lxr] is; move it into [lxr] to run it with Config.FullWheel = false on lxr-clothingradial
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-clothingradial
