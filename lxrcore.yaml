@@ -152,20 +152,12 @@ tasks:
     ref: main
     dest: ./resources/[lxr]/lxr-inventory
 
+  # Character select + creation + traits (free). Character+ — lxr-creator / lxr-clothing / lxr-barber — is the paid suite
+  # on https://www.lxrcore.com: drop those three folders into resources/[lxr] and swap the ensure lines in server.cfg.
   - action: download_github
-    src: https://github.com/LXRCore/lxr-creator
+    src: https://github.com/LXRCore/lxr-multicharacter
     ref: main
-    dest: ./resources/[lxr]/lxr-creator
-
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-barber
-    ref: main
-    dest: ./resources/[lxr]/lxr-barber
-
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-clothing
-    ref: main
-    dest: ./resources/[lxr]/lxr-clothing
+    dest: ./resources/[lxr]/lxr-multicharacter
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-hud
@@ -361,12 +353,7 @@ tasks:
   - action: download_github
     src: https://github.com/LXRCore/lxr-radial
     ref: main
-    dest: ./resources/[lxr-optional]/lxr-radial   # our own wheel, not ensured: [lxr] is; move it into [lxr] to run it with Config.FullWheel = false on lxr-clothingradial
-
-  - action: download_github
-    src: https://github.com/LXRCore/lxr-clothingradial
-    ref: main
-    dest: ./resources/[lxr]/lxr-clothingradial
+    dest: ./resources/[lxr]/lxr-radial   # the action wheel (F1). With Character+ installed, lxr-clothingradial (needs lxr-clothing) can replace it
 
   - action: download_github
     src: https://github.com/LXRCore/lxr-vehicles
