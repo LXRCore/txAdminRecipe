@@ -208,7 +208,8 @@ def check_online(repos):
     for i, src, ref, subpath in repos:
         repo = src.replace("https://github.com/", "").rstrip("/")
         try:
-            out = subprocess.run(["gh", "api", f"repos/{repo}/branches/{ref}", "--jq", ".name"],
+            # commits/{ref} resolves a branch, a tag or a pinned SHA; branches/{ref} only a branch
+            out = subprocess.run(["gh", "api", f"repos/{repo}/commits/{ref}", "--jq", ".sha"],
                                  capture_output=True, text=True, timeout=30)
         except FileNotFoundError:
             err("--online needs the GitHub CLI (gh) on PATH")
