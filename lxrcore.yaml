@@ -356,11 +356,6 @@ tasks:
     dest: ./resources/[lxr]/lxr-radial   # the action wheel (F1). With Character+ installed, lxr-clothingradial (needs lxr-clothing) can replace it
 
   - action: download_github
-    src: https://github.com/LXRCore/lxr-vehicles
-    ref: main
-    dest: ./resources/[lxr]/lxr-vehicles
-
-  - action: download_github
     src: https://github.com/LXRCore/lxr-dispatch
     ref: main
     dest: ./resources/[lxr]/lxr-dispatch
